@@ -5,13 +5,13 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <a>Item 1</a>
+        <Link to='/'>Home</Link>
       </li>
       <li>
-        <a>Parent</a>
+        <Link to='instructors'>Instructors</Link>
       </li>
       <li>
-        <a>Item 3</a>
+        <Link to='classes'>Classes</Link>
       </li>
     </>
   );
