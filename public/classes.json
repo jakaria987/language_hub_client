@@ -1,0 +1,93 @@
+[
+    {
+      "_id": "609f3d1ef3ba0c83c4f7d1a1",
+      "image": "https://i.ibb.co/rv1YtXx/class1.jpg",
+      "name": "Language Academy",
+      "instructorName": "John Smith",
+      "availableSeats": 10,
+      "price": 200,
+      "students": 100
+    },
+    {
+      "_id": "609f3d23f3ba0c83c4f7d1a2",
+      "image": "https://i.ibb.co/wWRnGKG/class2.jpg",
+      "name": "Global Language Institute",
+      "instructorName": "Sarah Johnson",
+      "availableSeats": 15,
+      "price": 250,
+      "students": 80
+    },
+    {
+      "_id": "609f3d29f3ba0c83c4f7d1a3",
+      "image": "https://i.ibb.co/tZh93NF/photo-1516383607781-913a19294fd1-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-M3wx-Mj-A3f-DB8-M.jpg",
+      "name": "Polyglot School",
+      "instructorName": "Michael Lee",
+      "availableSeats": 8,
+      "price": 180,
+      "students": 40
+    },
+    {
+      "_id": "609f3d2ff3ba0c83c4f7d1a4",
+      "image": "https://i.ibb.co/hctw2df/photo-1662278340446-b1d1f22b55dd-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-M3wx-Mj-A3f-DB8-M.jpg",
+      "name": "Linguistic Center",
+      "instructorName": "Emma Davis",
+      "availableSeats": 12,
+      "price": 300,
+      "students": 60
+    },
+    {
+      "_id": "609f3d35f3ba0c83c4f7d1a5",
+      "image": "https://i.ibb.co/GvPZY4T/photo-1523386574057-d43e1708e02e-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-M3wx-Mj-A3f-DB8-M.jpg",
+      "name": "Language Masters",
+      "instructorName": "David Johnson",
+      "availableSeats": 20,
+      "price": 220,
+      "students": 28
+    },
+    {
+      "_id": "609f3d3bf3ba0c83c4f7d1a6",
+      "image": "https://i.ibb.co/ZS3D8ZK/photo-1614459253272-5c76d9ef5782-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-M3wx-Mj-A3f-DB8-M.jpg",
+      "name": "Multilingual Institute",
+      "instructorName": "Olivia Smith",
+      "availableSeats": 5,
+      "price": 150,
+      "students": 112
+    },
+    {
+      "_id": "609f3d41f3ba0c83c4f7d1a7",
+      "image": "https://i.ibb.co/CbnfK6G/photo-1498243691581-b145c3f54a5a-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-M3wx-Mj-A3f-DB8-M.jpg",
+      "name": "Express Language School",
+      "instructorName": "James Anderson",
+      "availableSeats": 18,
+      "price": 270,
+      "students": 132
+    },
+    {
+      "_id": "609f3d47f3ba0c83c4f7d1a8",
+      "image": "https://i.ibb.co/vh8pvxt/photo-1591425609329-55b246b1043a-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-M3wx-Mj-A3f-DB8-M.jpg",
+      "name": "Language Hub",
+      "instructorName": "Sophia Thompson",
+      "availableSeats": 7,
+      "price": 190,
+      "students": 67
+    },
+    {
+      "_id": "609f3d4df3ba0c83c4f7d1a9",
+      "image": "https://i.ibb.co/7pbyjbn/photo-1560439514-07abbb294a86-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-M3wx-Mj-A3f-DB8-MXxh.jpg",
+      "name": "Bilingual Academy",
+      "instructorName": "Noah Martinez",
+      "availableSeats": 9,
+      "price": 210,
+      "students": 77
+    },
+    {
+      "_id": "609f3d53f3ba0c83c4f7d1aa",
+      "image": "https://i.ibb.co/SxhWjTT/photo-1513542789411-b6a5d4f31634-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-M3wx-Mj-A3f-DB8-M.jpg",
+      "name": "International Language School",
+      "instructorName": "Emily Johnson",
+      "availableSeats": 15,
+      "price": 280,
+      "students": 99
+    }
+  ]
+  
