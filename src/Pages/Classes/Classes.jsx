@@ -5,7 +5,7 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
 //   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("classes.json")
+    fetch("http://localhost:5000/classes")
       .then((res) => res.json())
       .then((data) => {
         setClasses(data);
@@ -26,7 +26,7 @@ const Classes = () => {
             <div className="card w-96 bg-base-100 shadow-xl py-4">
               <figure>
                 <img
-                  className="w-[250px] rounded"
+                  className="w-[250px] h-[150px] rounded"
                   src={item.image}
                   alt="Shoes"
                 />

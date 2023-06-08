@@ -5,7 +5,7 @@ const ClassItem = ({ item }) => {
       <div className="card w-96 bg-base-100 shadow-xl py-4">
         <figure>
           <img
-            className="w-[250px] rounded"
+            className="w-[250px] h-[150px] rounded"
             src={image}
             alt="Shoes"
           />
