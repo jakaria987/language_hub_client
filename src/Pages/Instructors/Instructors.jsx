@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 // import InstructorItem from "../../Shared/InstructorItem/InstructorItem";
 
@@ -13,7 +14,12 @@ const Instructors = () => {
       });
   }, []);
   return (
-    <div className="pt-24 pb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="pt-24 pb-8">
+      <SectionTitle
+                heading={"All Instructors"}
+                subHeading={"the language hub"}
+      ></SectionTitle>
+    <div className="  grid grid-cols-1 md:grid-cols-3 gap-4">
       {instructors.map((item) => (
         <div key={item._id} className="">
           <div className="flex md:flex-col-3">
@@ -31,6 +37,7 @@ const Instructors = () => {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 };
