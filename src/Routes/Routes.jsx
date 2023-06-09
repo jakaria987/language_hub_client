@@ -7,6 +7,8 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Signup/Signup";
 import Hudai from "../Pages/Hudai";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import MyCart from "../Pages/Dashboard/MyCart";
 
 export const router = createBrowserRouter([
   {
@@ -26,17 +28,31 @@ export const router = createBrowserRouter([
         element: <Classes></Classes>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/signup',
-        element: <SignUp></SignUp>
+        path: "/signup",
+        element: <SignUp></SignUp>,
       },
       {
-        path: '/hudai',
-        element: <PrivateRoute><Hudai></Hudai></PrivateRoute>
-      }
+        path: "/hudai",
+        element: (
+          <PrivateRoute>
+            <Hudai></Hudai>
+          </PrivateRoute>
+        ),
+      },
     ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+        {
+            path: 'mycart',
+            element:<MyCart></MyCart>
+        }
+    ]
   },
 ]);

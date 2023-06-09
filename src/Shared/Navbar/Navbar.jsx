@@ -33,7 +33,7 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link to="/" className="font-bold text-md">
+        <Link to="/dashboard/mycart" className="font-bold text-md">
           <button className="btn btn-sm btn-info">
             <FaUserPlus></FaUserPlus>
             <div className="badge">+{cart?.length || 0}</div>
