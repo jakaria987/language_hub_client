@@ -2,42 +2,65 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import {FaUserPlus} from 'react-icons/fa'
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
-
-  const {user,logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
   const handleLogOut = () => {
     logOut()
-    .then(() => {})
-    .catch(error => console.log(error));
-  }
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
   const navOptions = (
     <>
       <li>
-        <Link to='/' className="font-bold text-xl">Home</Link>
+        <Link to="/" className="font-bold text-lg">
+          Home
+        </Link>
       </li>
       <li>
-        <Link to='instructors' className="font-bold text-xl">Instructors</Link>
+        <Link to="instructors" className="font-bold text-lg">
+          Instructors
+        </Link>
       </li>
       <li>
-        <Link to='classes' className="font-bold text-xl">Classes</Link>
+        <Link to="classes" className="font-bold text-lg">
+          Classes
+        </Link>
       </li>
       <li>
-        <Link to='hudai' className="font-bold text-xl">Hudai</Link>
+        <Link to="/" className="font-bold text-md">
+          <button className="btn btn-sm btn-info">
+            <FaUserPlus></FaUserPlus>
+            <div className="badge">+{cart?.length || 0}</div>
+          </button>
+        </Link>
       </li>
-      
-      {
-        user ? <>
-          <button onClick={handleLogOut} className="btn btn-info">Log Out</button>
-          <img className="w-10 h-10 rounded-2xl ml-4" src={user?.photoURL} alt="" />
-        </> : <>
+
+      {/* {user ? (
+        <>
+          <button onClick={handleLogOut} className="btn btn-info btn-sm">
+            Log Out
+          </button>
+          <img
+            className="w-10 h-10 rounded-2xl ml-4"
+            src={user?.photoURL}
+            alt=""
+          />
+        </>
+      ) : (
+        <>
           <li>
-            <Link to='login' className="font-bold text-xl">Login</Link>
+            <Link to="login" className="font-bold text-xl">
+              Login
+            </Link>
           </li>
         </>
-      }
+      )} */}
     </>
   );
 
@@ -66,23 +89,41 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-                {navOptions}
+              {navOptions}
             </ul>
           </div>
           <Link className="h-4 w-12">
             <img src={logo} alt="" />
           </Link>
           <a className="btn btn-ghost normal-case text-2xl font-bold">
-            The Language Hub
+            Language Hub
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-           {navOptions}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {/* <a className="btn">Button</a> */}
+          {user ? (
+        <>
+          <button onClick={handleLogOut} className="btn btn-info btn-sm">
+            Log Out
+          </button>
+          <img
+            className="w-10 h-10 rounded-2xl ml-4"
+            src={user?.photoURL}
+            alt=""
+          />
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="login" className="font-bold text-xl">
+              Login
+            </Link>
+          </li>
+        </>
+      )}
         </div>
       </div>
     </>
