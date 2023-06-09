@@ -24,10 +24,14 @@ const Navbar = () => {
       <li>
         <Link to='classes' className="font-bold text-xl">Classes</Link>
       </li>
+      <li>
+        <Link to='hudai' className="font-bold text-xl">Hudai</Link>
+      </li>
       
       {
         user ? <>
-          <button onClick={handleLogOut} className="btn  btn-info ">Log Out</button>
+          <button onClick={handleLogOut} className="btn btn-info">Log Out</button>
+          <img className="w-10 h-10 rounded-2xl ml-4" src={user?.photoURL} alt="" />
         </> : <>
           <li>
             <Link to='login' className="font-bold text-xl">Login</Link>
