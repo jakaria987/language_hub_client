@@ -1,12 +1,16 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaUserPlus, FaWallet, FaHome, FaBookOpen, FaHandHoldingMedical, FaHandHolding, FaHandHoldingHeart } from "react-icons/fa";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/usedmin";
+import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
   const [cart] = useCart();
 
-  const isAdmin = true;
-  const isInstructor = true;
+//   const isAdmin = true;
+//   const isInstructor = true;
+const [isAdmin] = useAdmin();
+const [isInstructor] = useInstructor();
   return (
     <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -26,20 +30,22 @@ const Dashboard = () => {
 
           {isAdmin ? (
             <>
+              <h2 className="text-3xl text-center font-bold text-cyan-900 py-4">Admin Panel</h2>
               <li>
-                <NavLink to="/dashboard/mycart">
+                <NavLink to="/dashboard/manageusers">
                   <FaHandHoldingMedical></FaHandHoldingMedical> Manage Classes
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/allusers">
-                  <FaHandHoldingHeart></FaHandHoldingHeart> All Users
+                  <FaHandHoldingHeart></FaHandHoldingHeart> Manage Users
                 </NavLink>
               </li>
             </>
           ) 
           : isInstructor ? 
           <>
+          <h2 className="text-3xl text-center font-bold text-cyan-900 py-4">Instructor Panel</h2>
             <li>
                 <NavLink to="/dashboard/mycart">
                   <FaBookOpen></FaBookOpen> Add A Class
@@ -53,15 +59,16 @@ const Dashboard = () => {
           </> 
           : (
             <>
+            <h2 className="text-3xl text-center font-bold text-cyan-900 py-4">Student Panel</h2>
               <li>
                 <NavLink to="/dashboard/mycart">
-                  <FaUserPlus></FaUserPlus>My Class
+                  <FaUserPlus></FaUserPlus>My Selected Classes
                   <span className="badge">+{cart?.length || 0}</span>
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/history">
-                  <FaWallet></FaWallet> Payment history
+                  <FaWallet></FaWallet> My Enrolled Classes
                 </NavLink>
               </li>
             </>
