@@ -10,7 +10,9 @@ const {user, loading} = useContext(AuthContext);
 const location = useLocation();
 
 if(loading){
-    return <span className="loading loading-bars loading-lg"></span>
+    return <div className="flex justify-center items-center mt-56">
+        <span className="loading loading-bars loading-lg "></span>
+    </div> 
 }
 if(user){
     return children;
