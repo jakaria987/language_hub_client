@@ -52,7 +52,7 @@ const [isInstructor] = useInstructor();
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/dashboard/mycart">
+                <NavLink to="/dashboard/myclass">
                   <FaHandHolding></FaHandHolding> My Classes
                 </NavLink>
             </li>

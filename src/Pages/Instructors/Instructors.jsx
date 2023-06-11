@@ -6,6 +6,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
+  // const classData = instructors.filter(i => i.status === 'approved')
   useEffect(() => {
     fetch("http://localhost:5000/instructors")
       .then((res) => res.json())

@@ -6,11 +6,12 @@ import ClassItem from "../../../Shared/ClassItem/ClassItem";
 const PopularClasses = () => {
 
     const [classes, setClasses] = useState([]);
+    const classData = classes.filter(i => i.status === 'approved')
     useEffect(() => {
         fetch("http://localhost:5000/classes")
         .then(res => res.json())
         .then(data => {
-            const topStudents = data.filter(item => item.students > 76);
+            const topStudents = data.filter(item => item.availableSeats > 16);
             setClasses(topStudents)
         })
     },[])
@@ -23,7 +24,7 @@ const PopularClasses = () => {
             ></SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {
-                    classes.map(item => <ClassItem 
+                    classData.map(item => <ClassItem 
                         key={item._id}
                         item={item}
                         ></ClassItem>)

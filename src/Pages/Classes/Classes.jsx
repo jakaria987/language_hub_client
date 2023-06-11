@@ -11,6 +11,8 @@ const Classes = () => {
   const [ ,refetch] = useCart();
   const navigate = useNavigate();
   const location = useLocation();
+  const classData = classes.filter(i => i.status === 'approved')
+  console.log(classData);
 //   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/classes")
@@ -68,7 +70,7 @@ const Classes = () => {
                 subHeading={"the language hub"}
         ></SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {classes.map((item) => (
+      {classData.map((item) => (
         <div key={item._id}>
           <div className="flex md:flex-col-3">
             <div className="card w-96 bg-base-100 shadow-xl py-4">
