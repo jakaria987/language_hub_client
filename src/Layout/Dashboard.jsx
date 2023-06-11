@@ -32,7 +32,7 @@ const [isInstructor] = useInstructor();
             <>
               <h2 className="text-3xl text-center font-bold text-cyan-900 py-4">Admin Panel</h2>
               <li>
-                <NavLink to="/dashboard/manageusers">
+                <NavLink to="/dashboard/manageclass">
                   <FaHandHoldingMedical></FaHandHoldingMedical> Manage Classes
                 </NavLink>
               </li>
@@ -47,7 +47,7 @@ const [isInstructor] = useInstructor();
           <>
           <h2 className="text-3xl text-center font-bold text-cyan-900 py-4">Instructor Panel</h2>
             <li>
-                <NavLink to="/dashboard/mycart">
+                <NavLink to="/dashboard/addclass">
                   <FaBookOpen></FaBookOpen> Add A Class
                 </NavLink>
             </li>
