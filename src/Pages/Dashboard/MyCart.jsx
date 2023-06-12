@@ -1,10 +1,11 @@
 import { FaTrash } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
-  const total = cart.reduce((sum, item) => item.price + sum, 0);
+  // const total = cart.reduce((sum, item) => item.price + sum, 0);
 
   const handleDelete = item => {
     Swal.fire({
@@ -39,8 +40,8 @@ const MyCart = () => {
     <div>
       <div className="uppercase flex justify-evenly items-center pb-4">
         <h4 className="text-2xl">Total class : {cart.length}</h4>
-        <h4 className="text-2xl">Total price : {total} $</h4>
-        <button className="btn btn-info px-8">PAY</button>
+        {/* <h4 className="text-2xl">Total price : {total} $</h4> */}
+        {/* <button className="btn btn-info px-8">PAY</button> */}
       </div>
       <div className="overflow-x-auto">
         <table className="table">
@@ -79,10 +80,14 @@ const MyCart = () => {
                     </td>
                     <td className="text-end">{item.price}$</td>
                     <td>
+                      
                       <button onClick={ () => handleDelete(item)} className="btn btn-ghost btn-md hover:bg-red-500 bg-cyan-500"><FaTrash></FaTrash></button>
+                      
                     </td>
                     <td>
+                      <Link to='/dashboard/myenrolledclasses'>
                       <button className="btn btn-ghost btn-md hover:bg-green-400 bg-cyan-500">PAY</button>
+                      </Link>
                     </td>
                   </tr>)
             }

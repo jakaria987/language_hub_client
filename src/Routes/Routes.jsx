@@ -15,6 +15,8 @@ import InstructorRoute from "./InstructorRoute";
 import ManageClass from "../Pages/Dashboard/ManageClass/ManageClass";
 import AdminRoute from "./AdminRoute";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +62,10 @@ export const router = createBrowserRouter([
             element:<MyCart></MyCart>
         },
         {
+            path: 'myenrolledclasses',
+            element:<Payment></Payment>
+        },
+        {
             path: 'allusers',
             element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
@@ -77,4 +83,8 @@ export const router = createBrowserRouter([
         }
     ]
   },
+  {
+    path: '*',
+    element: <ErrorPage></ErrorPage>
+  }
 ]);

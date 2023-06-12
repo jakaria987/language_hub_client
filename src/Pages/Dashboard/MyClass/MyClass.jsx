@@ -40,6 +40,12 @@ const MyClass = () => {
                 <p className="font-semibold text-center">
                   Price: {item.price}$
                 </p>
+                <p>
+                  {item.status}
+                </p>
+                <p>
+                  {item.feedback}
+                </p>
                 {/* <button onClick={() => handleSelect(item)} className="btn btn-md btn-outline btn-success">
                   select
                 </button> */}
