@@ -3,6 +3,7 @@ import { FaUserPlus, FaWallet, FaHome, FaBookOpen, FaHandHoldingMedical, FaHandH
 import useCart from "../hooks/useCart";
 import useAdmin from "../hooks/usedmin";
 import useInstructor from "../hooks/useInstructor";
+import MyComponent from "../Pages/Dashboard/Hudai2";
 
 const Dashboard = () => {
   const [cart] = useCart();
@@ -30,6 +31,7 @@ const [isInstructor] = useInstructor();
 
           {isAdmin ? (
             <>
+            <MyComponent></MyComponent>
               <h2 className="text-3xl text-center font-bold text-cyan-900 py-4">Admin Panel</h2>
               <li>
                 <NavLink to="/dashboard/manageclass">

@@ -5,7 +5,6 @@ import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Signup/Signup";
-import Hudai from "../Pages/Hudai";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart";
@@ -42,14 +41,6 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
-      },
-      {
-        path: "/hudai",
-        element: (
-          <PrivateRoute>
-            <Hudai></Hudai>
-          </PrivateRoute>
-        ),
       },
     ],
   },
