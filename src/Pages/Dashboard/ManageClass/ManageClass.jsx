@@ -71,7 +71,7 @@ const ManageClasses = () => {
     return (
         <div>
             <h2 className="animate__animated animate__bounce text-3xl text-center my-12 font-semibold">Manage Classes</h2>
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-24 ml-20">
                 {
                     classes.map(course =>
                         <div key={course._id} className="card card-compact w-80 h-[550px] bg-base-100 shadow-xl">

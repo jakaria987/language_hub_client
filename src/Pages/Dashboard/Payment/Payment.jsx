@@ -23,7 +23,7 @@ const Payment = () => {
              heading='PAYMENT'
              subHeading='Student panel'
             ></SectionTitle>
-            <h1>{payment.price}</h1>
+            <h1 className="text-center text-cyan-800">You have to pay: {payment.price}$</h1>
             <Elements stripe={stripePromise}>
                 <CheckoutForm price={payment.price} payment={payment} ></CheckoutForm>
             </Elements>

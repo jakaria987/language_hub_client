@@ -17,6 +17,7 @@ import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyEnrolledClasses from "../Pages/Dashboard/Payment/MyEnrolledClasses";
+import StudentRoute from "./StudentRoute";
 
 export const router = createBrowserRouter([
   {
@@ -51,11 +52,11 @@ export const router = createBrowserRouter([
     children: [
         {
             path: 'mycart',
-            element:<MyCart></MyCart>
+            element:<StudentRoute><MyCart></MyCart></StudentRoute>
         },
         {
             path: 'myenrolledclasses',
-            element: <MyEnrolledClasses></MyEnrolledClasses>
+            element: <StudentRoute><MyEnrolledClasses></MyEnrolledClasses></StudentRoute>
         },
         {
             path: 'myenrolledclasses/:id',

@@ -13,6 +13,7 @@ const CheckoutForm = ({ price, payment }) => {
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
   const [isCardComplete, setCardComplete] = useState(false);
+  const [paymentComplete, setPaymentComplete] = useState(false);
 
   useEffect(() => {
     if (price > 0) {
@@ -74,6 +75,7 @@ const CheckoutForm = ({ price, payment }) => {
 
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
+      setPaymentComplete(true);
       const Payment = {
         image: payment.image,
         email: user?.email,
@@ -118,7 +120,7 @@ const CheckoutForm = ({ price, payment }) => {
         <button
           className="btn btn-primary btn-sm mt-4"
           type="submit"
-          disabled={!stripe || !clientSecret || processing || !isCardComplete}
+          disabled={!stripe || !clientSecret || processing || !isCardComplete || paymentComplete}
         >
           Pay
         </button>

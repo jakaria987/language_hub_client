@@ -37,7 +37,7 @@ const MyCart = () => {
   }
 
   return (
-    <div>
+    <div className="bg-cyan-400">
       <div className="uppercase flex justify-evenly items-center pb-4">
         <h4 className="text-2xl">Total class : {cart.length}</h4>
         {/* <h4 className="text-2xl">Total price : {total} $</h4> */}
@@ -48,21 +48,21 @@ const MyCart = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>
+              <th className="font-bold text-lg">
                 SL.
               </th>
-              <th>Image</th>
-              <th>Book</th>
-              <th>Price</th>
-              <th>Action</th>
-              <th>Payment</th>
+              <th className="font-bold text-lg">Image</th>
+              <th className="font-bold text-lg">Book</th>
+              <th className="font-bold text-lg">Price</th>
+              <th className="font-bold text-lg">Action</th>
+              <th className="font-bold text-lg">Payment</th>
 
             </tr>
           </thead>
           <tbody>
             {
                 cart.map((item, index) => <tr key={item._id}>
-                    <td>
+                    <td className="font-bold text-lg">
                       {index + 1}
                     </td>
                     <td>
@@ -75,10 +75,10 @@ const MyCart = () => {
                           </div>
                         </div>
                     </td>
-                    <td>
+                    <td className="font-bold text-lg">
                       {item.name}
                     </td>
-                    <td className="text-end">{item.price}$</td>
+                    <td className="text-end font-bold text-lg">{item.price}$</td>
                     <td>
                       
                       <button onClick={ () => handleDelete(item)} className="btn btn-ghost btn-md hover:bg-red-500 bg-cyan-500"><FaTrash></FaTrash></button>

@@ -2,11 +2,8 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
-// import InstructorItem from "../../Shared/InstructorItem/InstructorItem";
-
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
-  // const classData = instructors.filter(i => i.status === 'approved')
   useEffect(() => {
     fetch("http://localhost:5000/instructors")
       .then((res) => res.json())

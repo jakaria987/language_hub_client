@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
   const [name, setClassName] = useState("");
@@ -7,6 +9,7 @@ const AddClass = () => {
   const [availableSeats, setAvailableSeats] = useState(0);
   const [price, setPrice] = useState(0);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleAddClass = (e) => {
     e.preventDefault();
@@ -39,6 +42,18 @@ const AddClass = () => {
         setClassImage("");
         setAvailableSeats(0);
         setPrice(0);
+        if(data.insertedId){
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'your class added',
+            showConfirmButton: false,
+            timer: 1500
+           
+          });
+          navigate('/dashboard/myclass')
+        }
+        
       })
       .catch((error) => {
         // Handle any errors
