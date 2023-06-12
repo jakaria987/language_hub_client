@@ -15,7 +15,7 @@ const PopularInstructors = () => {
     },[])
 
     return (
-        <div className="py-8">
+        <div className="bg-cyan-200 px-4 py-4">
             <SectionTitle
                 heading={"Our Instructors"}
                 subHeading={"the language hub"}
