@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import {FaUserPlus} from 'react-icons/fa'
 import useCart from "../../hooks/useCart";
+import Darkreader from "react-darkreader";
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -32,6 +34,9 @@ const Navbar = () => {
           Classes
         </Link>
       </li>
+      
+      
+  
       <li>
         <Link to="/dashboard/mycart" className="font-bold text-md">
           <button className="btn btn-sm btn-info">
@@ -40,6 +45,7 @@ const Navbar = () => {
           </button>
         </Link>
       </li>
+      <Darkreader></Darkreader>
 
       {/* {user ? (
         <>
@@ -66,6 +72,7 @@ const Navbar = () => {
 
   return (
     <>
+    
       <div className="navbar fixed z-10 bg-cyan-300 max-w-screen-lg ">
         <div className="navbar-start">
           <div className="dropdown">

@@ -50,19 +50,7 @@ const MyClass = () => {
                    {item.feedback}
                  </p></>
                 }
-                  
-                  
-
-                
-                    
-                
-                
-                {/* <p className="font-semibold text-center bg-red-400 py-2 rounded-md">
-                  {item.feedback}
-                </p> */}
-                {/* <button onClick={() => handleSelect(item)} className="btn btn-md btn-outline btn-success">
-                  select
-                </button> */}
+              
               </div>
             </div>
           </div>
