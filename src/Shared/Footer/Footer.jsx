@@ -7,7 +7,7 @@ const Footer = () => {
   <div className="flex gap-12 justify-between items-center mt-4">
   <img src={logo} className='w-28 h-10' alt="" />
     <p className='text-xl font-semibold'>Copyright © 2023 - All right reserved</p>
-    <p className='text-xl font-bold'>Want to sign up ? <Link to='signup' className='text-black'><button className="btn  btn-accent ">Click here</button></Link></p>
+    <p className='text-xl font-bold'>Want to join? <Link to='signup'><button className="btn  btn-accent ">Click here</button></Link></p>
   </div>
     </div>
   );
