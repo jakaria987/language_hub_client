@@ -1,11 +1,9 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useContext, useEffect } from "react";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../Providers/AuthProvider";
-// import './CheckoutForm.css'
 
-const CheckoutForm = ({ price, cart }) => {
+const CheckoutForm = ({ price, payment }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useContext(AuthContext);
@@ -14,6 +12,7 @@ const CheckoutForm = ({ price, cart }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
+  const [isCardComplete, setCardComplete] = useState(false);
 
   useEffect(() => {
     if (price > 0) {
@@ -22,19 +21,11 @@ const CheckoutForm = ({ price, cart }) => {
         setClientSecret(res.data.clientSecret);
       });
     }
-
-    // if (price > 0) {
-    //     const selectedClassIds = cart
-    //       .filter(item => item.paymentStatus !== 'pending')
-    //       .map(item => item._id);
-    
-    //     axiosSecure.post("/create-payment-intent", { price, classIds: selectedClassIds })
-    //       .then((res) => {
-    //         console.log(res.data.clientSecret);
-    //         setClientSecret(res.data.clientSecret);
-    //       });
-    //   }
   }, [price, axiosSecure]);
+
+  const handleCardChange = (event) => {
+    setCardComplete(event.complete);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,50 +39,54 @@ const CheckoutForm = ({ price, cart }) => {
       return;
     }
 
+    setProcessing(true);
+
     const { error } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
+
     if (error) {
       console.log("error", error);
       setError(error.message);
     } else {
       setError("");
-      // console.log('PaymentMethod', paymentMethod);
     }
 
-    setProcessing(true);
-    const { paymentIntent, error: confirmError } =
-      await stripe.confirmCardPayment(clientSecret, {
+    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
         payment_method: {
-          card: card,
+          card,
           billing_details: {
             email: user?.email || "unknown",
             name: user?.displayName || "anonymous",
           },
         },
-      });
-    
+      }
+    );
+
     if (confirmError) {
       console.log(confirmError);
     }
-    console.log("payment intent ", paymentIntent);
+
     setProcessing(false);
+
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
-      const payment = {
+      const Payment = {
+        image: payment.image,
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
         date: new Date(),
-        quantity: cart.length,
-        cartItems: cart.map((item) => item._id),
-        classItems: cart.map((item) => item.userId),
+        cartItems: payment._id,
+        classItems: payment.userId,
         status: "pending",
-        itemNames: cart.map((item) => item.name),
+        itemNames: payment.name,
       };
-      axiosSecure.post("/payments", payment)
-      .then((res) => {
+
+      axiosSecure.post("/payments", Payment).then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
           // display confirm
@@ -99,6 +94,7 @@ const CheckoutForm = ({ price, cart }) => {
       });
     }
   };
+
   return (
     <>
       <form className="w-2/3 m-8" onSubmit={handleSubmit}>
@@ -117,19 +113,22 @@ const CheckoutForm = ({ price, cart }) => {
               },
             },
           }}
+          onChange={handleCardChange}
         />
         <button
           className="btn btn-primary btn-sm mt-4"
           type="submit"
-          disabled={!stripe || !clientSecret || processing}
+          disabled={!stripe || !clientSecret || processing || !isCardComplete}
         >
           Pay
         </button>
       </form>
+
       {error && <p className="text-red-600 ml-8">{error}</p>}
+
       {transactionId && (
         <p className="text-green-500">
-          Transaction complete with transaction id from: {transactionId}
+          Transaction complete with transaction id: {transactionId}
         </p>
       )}
     </>

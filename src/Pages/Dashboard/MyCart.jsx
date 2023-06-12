@@ -85,7 +85,7 @@ const MyCart = () => {
                       
                     </td>
                     <td>
-                      <Link to='/dashboard/myenrolledclasses'>
+                      <Link to={`/dashboard/myenrolledclasses/${item._id}`}>
                       <button className="btn btn-ghost btn-md hover:bg-green-400 bg-cyan-500">PAY</button>
                       </Link>
                     </td>

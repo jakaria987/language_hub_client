@@ -3,7 +3,7 @@ import { FaUserPlus, FaWallet, FaHome, FaBookOpen, FaHandHoldingMedical, FaHandH
 import useCart from "../hooks/useCart";
 import useAdmin from "../hooks/usedmin";
 import useInstructor from "../hooks/useInstructor";
-import MyComponent from "../Pages/Dashboard/Hudai2";
+import MyComponent from "../Pages/Dashboard/MyComponent";
 
 const Dashboard = () => {
   const [cart] = useCart();
@@ -46,7 +46,9 @@ const [isInstructor] = useInstructor();
             </>
           ) 
           : isInstructor ? 
+
           <>
+          <MyComponent></MyComponent>
           <h2 className="text-3xl text-center font-bold text-cyan-900 py-4">Instructor Panel</h2>
             <li>
                 <NavLink to="/dashboard/addclass">
@@ -61,6 +63,7 @@ const [isInstructor] = useInstructor();
           </> 
           : (
             <>
+            <MyComponent></MyComponent>
             <h2 className="text-3xl text-center font-bold text-cyan-900 py-4">Student Panel</h2>
               <li>
                 <NavLink to="/dashboard/mycart">

@@ -13,7 +13,6 @@ const Home = () => {
            </div>
            <PopularInstructors></PopularInstructors>
            <Xtraa></Xtraa>
-           {/* TODO: animation in dashboard section */}
         </div>
     );
 };
