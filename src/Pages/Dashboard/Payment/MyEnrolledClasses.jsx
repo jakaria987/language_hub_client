@@ -6,7 +6,7 @@ const MyEnrolledClasses = () => {
     const [enrolled, setEnrolled] = useState([]);
     const {user} = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:5000/myenrolledclasses?email=${user.email}`)
+        fetch(`https://final-assignment-server-jakaria987.vercel.app/myenrolledclasses?email=${user.email}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);

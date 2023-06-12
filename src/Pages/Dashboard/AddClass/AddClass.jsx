@@ -25,7 +25,7 @@ const AddClass = () => {
     };
 
     // Make a POST request to your backend API
-    fetch("http://localhost:5000/classes", {
+    fetch("https://final-assignment-server-jakaria987.vercel.app/classes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

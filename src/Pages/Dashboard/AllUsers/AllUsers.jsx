@@ -10,7 +10,7 @@ const AllUsers = () => {
     return res.data;
   });
   const handleMakeAdmin = user => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`https://final-assignment-server-jakaria987.vercel.app/users/admin/${user._id}`, {
         method: "PATCH"
     })
     .then(res => res.json())
@@ -28,7 +28,7 @@ const AllUsers = () => {
     })
   }
   const handleMakeInstructor = user => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+    fetch(`https://final-assignment-server-jakaria987.vercel.app/users/instructor/${user._id}`, {
         method: "PATCH"
     })
     .then(res => res.json())
@@ -56,7 +56,7 @@ const AllUsers = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`https://final-assignment-server-jakaria987.vercel.app/users/${user._id}`, {
           method: "DELETE"
         })
         .then(res => res.json())

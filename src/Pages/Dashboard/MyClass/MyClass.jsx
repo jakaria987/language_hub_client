@@ -6,7 +6,7 @@ const MyClass = () => {
     const [myClasses, setMyClasses] = useState([]);
     const {user} = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:5000/myclasses?email=${user.email}`)
+        fetch(`https://final-assignment-server-jakaria987.vercel.app/myclasses?email=${user.email}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);

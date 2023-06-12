@@ -8,7 +8,7 @@ const PopularClasses = () => {
     const [classes, setClasses] = useState([]);
     const classData = classes.filter(i => i.status === 'approved')
     useEffect(() => {
-        fetch("http://localhost:5000/classes")
+        fetch("https://final-assignment-server-jakaria987.vercel.app/classes")
         .then(res => res.json())
         .then(data => {
             const topStudents = data.filter(item => item.availableSeats > 16);

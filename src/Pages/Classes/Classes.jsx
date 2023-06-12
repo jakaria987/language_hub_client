@@ -15,7 +15,7 @@ const Classes = () => {
   console.log(classData);
 //   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/classes")
+    fetch("https://final-assignment-server-jakaria987.vercel.app/classes")
       .then((res) => res.json())
       .then((data) => {
         setClasses(data);
@@ -26,7 +26,7 @@ const Classes = () => {
     console.log(item);
     if(user && user.email){
       const addItem = {userId : item._id, email: user.email, name: item.name, image: item.image, price: item.price }
-      fetch('http://localhost:5000/carts', {
+      fetch('https://final-assignment-server-jakaria987.vercel.app/carts', {
         method: "POST",
         headers: {
           "content-type" : "application/json"

@@ -7,7 +7,7 @@ const PopularInstructors = () => {
     const [instructors, setInstructors] = useState([]);
     // const classData = instructors.filter(i => i.status === 'approved')
     useEffect(() => {
-        fetch("http://localhost:5000/instructors")
+        fetch("https://final-assignment-server-jakaria987.vercel.app/instructors")
         .then(res => res.json())
         .then(data => {
             setInstructors(data.slice(0,6))
